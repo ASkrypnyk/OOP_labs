@@ -5,7 +5,7 @@ using namespace std;
 
 template<typename T>
 DoubleLinkedList<T>:: ~DoubleLinkedList() {
-	Node<T>* temp;
+	Node* temp;
 	while (head) {
 		temp = head;
 		head = head->next;
@@ -15,7 +15,7 @@ DoubleLinkedList<T>:: ~DoubleLinkedList() {
 
 template<typename T>
 void DoubleLinkedList<T>::add(T data) {
-	Node<T>* curr = new Node;
+	Node* curr = new Node;
 	curr->data = data;
 
 	if (head == nullptr) {
@@ -23,7 +23,8 @@ void DoubleLinkedList<T>::add(T data) {
 		curr->next = nullptr;
 		head = curr;
 		tail = curr;
-	}else {
+	}
+	else {
 		curr->prev = tail;
 		curr->next = nullptr;
 		tail->next = curr;
@@ -34,7 +35,7 @@ void DoubleLinkedList<T>::add(T data) {
 
 template<typename T>
 void DoubleLinkedList<T>::print() {
-	Node<T>* curr = new Node;
+	Node* curr = new Node;
 	while (curr != nullptr) {
 		cout << curr->data;
 		curr = curr->next;
